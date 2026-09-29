@@ -1,0 +1,1092 @@
+/* What Am I Worth? -- "Preliminary Prospectus" styling.
+   A printed red-herring S-1 on a desk: cream paper, serif body, hairline rules,
+   double-ruled totals, footnote daggers and the red "subject to completion" legend.
+   System fonts only. Motion is print-like: lines are typed, totals stamped,
+   sections slid in on the vertical only. Nothing bounces. */
+
+:root {
+  --desk: #e3dac8;
+  --paper: #f6f1e6;
+  --field: #fffdf7;
+  --ink: #1b1813;
+  --ink-2: #5a5249;
+  --rule: #1b1813;
+  --rule-soft: #cfc4ae;
+  --herring: #a8231a;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --pad: 16px;
+  --gap: 1.5rem;
+  color-scheme: light;
+}
+
+[hidden] { display: none !important; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+}
+
+h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.2; }
+p { margin: 0 0 0.75em; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--herring); }
+
+:focus-visible {
+  outline: 3px solid var(--herring);
+  outline-offset: 2px;
+}
+
+.num,
+code, pre {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Small uppercase sans: labels, legends, buttons, the legend band. */
+.kicker,
+.terms dt,
+.notice h2,
+.schedule > h2,
+.mode-toggle legend,
+.group legend,
+.breakdown caption,
+.comps h3,
+.total-label,
+.sources-label,
+button {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Red legend ---------- */
+
+.herring {
+  background: var(--herring);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 0.55rem var(--pad);
+}
+
+/* ---------- Sheet ---------- */
+
+.sheet {
+  background: var(--paper);
+  padding: 1.75rem var(--pad) 2.5rem;
+}
+
+/* ---------- Cover ---------- */
+
+.cover {
+  text-align: center;
+  padding: 1.25rem 0 1.5rem;
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  margin-bottom: var(--gap);
+}
+
+.kicker {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin: 0 0 0.6rem;
+}
+
+.cover h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: clamp(2rem, 9vw, 3.25rem);
+  line-height: 1.05;
+  margin: 0 0 0.9rem;
+}
+
+.deck {
+  font-style: italic;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  max-width: 30em;
+  margin: 0 auto 1.25rem;
+}
+
+.terms {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  column-gap: 1.25rem;
+  row-gap: 0.3rem;
+  margin: 0 auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-soft);
+  max-width: 22rem;
+  text-align: left;
+}
+
+.terms > div { display: contents; }
+
+.terms dt {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  align-self: baseline;
+  text-align: right;
+}
+
+.terms dd {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  align-self: baseline;
+}
+
+/* ---------- Privacy notice ---------- */
+
+.notice {
+  border: 2px solid var(--ink);
+  background: var(--field);
+  padding: 1rem 1rem 1.05rem;
+  margin: 0 0 2rem;
+}
+
+.notice h2 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.notice p { font-size: 1.0625rem; }
+.notice p + p { font-style: italic; }
+
+/* ---------- Schedule A (form) ---------- */
+
+.schedule > h2 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.35;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 1.25rem;
+}
+
+.unaudited {
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.group,
+.mode-toggle {
+  margin-bottom: 1.5rem;
+}
+
+.mode-toggle legend,
+.group legend {
+  display: block;
+  width: 100%;
+  float: left; /* lets the legend sit in normal flow so the hairline spans the column */
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule-soft);
+  margin-bottom: 0.9rem;
+}
+
+.mode-toggle legend + *,
+.group legend + * { clear: both; }
+
+.field { margin-bottom: 1rem; }
+.field:last-child { margin-bottom: 0; }
+
+.field > label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.money {
+  display: flex;
+  align-items: stretch;
+  min-height: 48px;
+  background: var(--field);
+  border: 1px solid var(--ink);
+  border-bottom-width: 2px;
+}
+
+.money > span {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 0.75rem;
+  font-family: var(--mono);
+  font-size: 1.0625rem;
+  color: var(--ink-2);
+}
+
+.money input {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 1.125rem; /* >= 16px: no iOS zoom */
+  text-align: right;
+  padding: 0.6rem 0.75rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.money input:focus-visible { outline: none; }
+.money:focus-within {
+  outline: 3px solid var(--herring);
+  outline-offset: 2px;
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  margin: 0.3rem 0 0;
+}
+
+.error {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--herring);
+  margin: 0.35rem 0 0;
+}
+
+.field.is-invalid .money { border-color: var(--herring); }
+.field.is-invalid > label { color: var(--herring); }
+
+/* Mode toggle: two segments built from the radios. */
+
+.segments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.segments input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
+.segments label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.15rem;
+  min-height: 48px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--ink);
+  background: var(--field);
+  cursor: pointer;
+  text-align: center;
+}
+
+.segments label + input + label { margin-left: -1px; }
+
+.seg-label {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.seg-hint {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-2);
+  line-height: 1.3;
+}
+
+.segments input:checked + label {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.segments input:checked + label .seg-hint { color: var(--rule-soft); }
+
+.segments input:focus-visible + label {
+  outline: 3px solid var(--herring);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.segments label:hover { background: var(--paper); }
+.segments input:checked + label:hover { background: var(--ink); }
+
+/* ---------- Buttons ---------- */
+
+button {
+  font: inherit;
+  font-family: var(--sans);
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border: 2px solid var(--ink);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-text {
+  display: block;
+  margin: 0.5rem auto 0;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: 0;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.btn-text:hover { color: var(--herring); }
+
+.actions { margin-top: 1.75rem; }
+
+.noscript {
+  margin-top: 1rem;
+  color: var(--herring);
+  font-weight: 600;
+}
+
+/* ---------- Pricing supplement (result) ---------- */
+
+.supplement {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 3px double var(--rule);
+}
+
+#result-headline {
+  font-size: clamp(1.5rem, 6.5vw, 2.25rem);
+  line-height: 1.15;
+  margin-bottom: 0.6rem;
+  scroll-margin-top: 4rem; /* keeps the kicker and double rule in view */
+}
+
+#result-headline:focus { outline: none; }
+#result-headline:focus-visible { outline: 3px solid var(--herring); outline-offset: 2px; }
+
+.subtitle {
+  color: var(--ink-2);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.total-block {
+  position: relative;
+  margin-bottom: 1.5rem; /* .total is the block's last child, so p:last-child zeroes its own margin */
+  /* The stamp scales the full-width total; clip sideways so it can never
+     widen the page. Vertical overflow (the PRICED mark) stays visible. */
+  overflow-x: clip;
+}
+
+.total-label {
+  padding-right: 6.5rem; /* room for the PRICED stamp */
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-2);
+  margin: 0 0 0.25rem;
+}
+
+.total {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 11vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 3px double var(--rule);
+}
+
+.notices {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.notices li {
+  border-left: 4px solid var(--herring);
+  padding: 0.35rem 0 0.35rem 0.75rem;
+  color: var(--herring);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+table { border-collapse: collapse; width: 100%; }
+
+.breakdown { margin-bottom: 1.75rem; }
+
+.breakdown caption {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.breakdown th,
+.breakdown td {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top;
+}
+
+.breakdown th {
+  text-align: left;
+  font-weight: 400;
+  padding-right: 1rem;
+}
+
+.row-label { display: block; }
+
+.basis {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+
+.breakdown td {
+  text-align: right;
+  font-size: 1.0625rem;
+}
+
+.breakdown .total-row th,
+.breakdown .total-row td {
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-weight: 700;
+}
+
+.one-liners {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  counter-reset: fn;
+}
+
+.one-liners li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.7rem;
+}
+
+.one-liners li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--herring);
+  font-weight: 700;
+  content: "\2020";
+}
+
+.one-liners li:nth-child(2)::before { content: "\2021"; }
+.one-liners li:nth-child(3)::before { content: "\00a7"; }
+.one-liners li:nth-child(4)::before { content: "\2016"; }
+
+.comps {
+  margin-bottom: 2rem;
+}
+
+.comps h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 0.25rem;
+}
+
+.comps-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: comp;
+}
+
+.comps-list li {
+  counter-increment: comp;
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.comps-list li::before {
+  content: "[" counter(comp) "]";
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  padding-top: 0.1em;
+}
+
+#comps-empty {
+  padding: 0.65rem 0;
+  font-style: italic;
+}
+
+.conversion {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ink);
+  background: var(--field);
+  font-weight: 600;
+}
+
+.result-actions { margin-bottom: 1rem; }
+
+.result-buttons {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.share-status,
+.share-note {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  margin: 0.6rem 0 0;
+}
+
+.share-status { font-weight: 600; color: var(--ink); }
+.share-status:empty { display: none; }
+
+.fineprint {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ---------- The reveal ---------- */
+
+/* The headline area doubles as the stage for the due-diligence overlay. */
+.result-head {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.result-head .subtitle { margin-bottom: 0; }
+
+.theatre {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+/* A hairline that fills while diligence is "done": 0 to landing. */
+.theatre::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--ink);
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: diligence 2600ms cubic-bezier(0.35, 0.1, 0.25, 1) forwards;
+}
+
+.theatre-title {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--herring);
+  margin: 0 0 0.5rem;
+}
+
+.theatre-lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.theatre-lines li {
+  display: flex;
+  align-items: baseline;
+  animation: type-in 240ms steps(20, end) both;
+}
+
+.line-text { min-width: 0; }
+
+/* The line being worked on gets a blinking caret. */
+.theatre-lines li.current .line-text::after {
+  content: "_";
+  animation: caret 700ms steps(1, end) infinite;
+}
+
+/* "..................... OK", like a table of contents leader. */
+.tick {
+  flex: 1 0 3.5em;
+  display: flex;
+  align-items: baseline;
+  margin-left: 0.4em;
+  color: var(--herring);
+  font-weight: 700;
+  animation: type-in 160ms steps(10, end) both;
+}
+
+.tick::before {
+  content: "";
+  flex: 1 1 auto;
+  min-width: 1em;
+  margin-right: 0.4em;
+  border-bottom: 2px dotted var(--rule-soft);
+}
+
+/* The stamp beside the total. It is part of the page in every state;
+   during a reveal it only arrives at landing. */
+.total-block::after {
+  content: "Priced";
+  position: absolute;
+  top: -0.45rem;
+  right: 0.75rem;
+  padding: 0.2rem 0.5rem 0.15rem;
+  border: 3px double var(--herring);
+  color: var(--herring);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  opacity: 0.88;
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+
+/* Phase states, keyed on #result[data-state]. "shown" and "hidden" carry no
+   reveal styling, so the reprice and reduced-motion paths show everything. */
+#result[data-state="theatre"] [data-reveal],
+#result[data-state="theatre"] .total-block,
+#result[data-state="counting"] [data-reveal] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#result[data-state="counting"] .total-block {
+  animation: rise-in 220ms ease-out both;
+}
+
+#result[data-state="counting"] .total-block::after { visibility: hidden; }
+
+.total.counting { color: var(--ink-2); }
+
+#result[data-state="landing"] .theatre {
+  animation: fade-out 200ms ease-out forwards;
+}
+
+#result[data-state="landing"] .total-block::after {
+  animation: stamp-mark 240ms cubic-bezier(0.55, 0, 0.9, 0.4) 90ms both;
+}
+
+[data-reveal="0"] { --i: 0; }
+[data-reveal="1"] { --i: 1; }
+[data-reveal="2"] { --i: 2; }
+[data-reveal="3"] { --i: 3; }
+[data-reveal="4"] { --i: 4; }
+
+#result[data-state="landing"] [data-reveal] {
+  animation: reveal-in 400ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i) * 100ms);
+}
+
+.total.stamped {
+  transform-origin: left center;
+  animation: stamp 260ms ease-out;
+}
+
+.flash { animation: flash 600ms ease-out; }
+
+.skip-reveal {
+  position: fixed;
+  left: 50%;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 20;
+  min-height: 44px;
+  padding: 0.5rem 1.25rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: 2px solid var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 3px 3px 0 var(--herring);
+}
+
+.skip-reveal:hover { background: var(--paper); color: var(--ink); }
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes type-in {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes caret {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes diligence {
+  to { transform: scaleX(1); }
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes stamp {
+  from { transform: scale(1.06); color: var(--herring); }
+  to { transform: scale(1); color: var(--ink); }
+}
+
+@keyframes stamp-mark {
+  from { opacity: 0; transform: rotate(-6deg) scale(1.5); }
+  to { opacity: 0.88; transform: rotate(-6deg) scale(1); }
+}
+
+@keyframes flash {
+  from { background-color: rgb(168 35 26 / 0.12); }
+  to { background-color: transparent; }
+}
+
+/* ---------- Notes to the valuation ---------- */
+
+.notes {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.notes > h2 {
+  font-size: 1.25rem;
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.25rem;
+}
+
+.note {
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.note h3 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.note-num {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-2);
+  margin-right: 0.25rem;
+}
+
+.note h4 {
+  font-size: 0.9375rem;
+  font-style: italic;
+  margin: 1.1rem 0 0.4rem;
+}
+
+.note pre {
+  margin: 0 0 0.75rem;
+  padding: 0.75rem;
+  background: var(--field);
+  border: 1px solid var(--rule-soft);
+  overflow-x: auto;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.as-of { font-style: italic; color: var(--ink-2); }
+
+.figures { font-size: 0.875rem; }
+
+.figures th,
+.figures td {
+  padding: 0.45rem 0.6rem 0.45rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top;
+  text-align: left;
+}
+
+.figures tr:first-child th,
+.figures tr:first-child td { border-top: 1px solid var(--rule); }
+
+.figures th { font-weight: 600; }
+.figures .num { white-space: nowrap; text-align: right; padding-right: 1rem; }
+.figure-note { color: var(--ink-2); padding-right: 0; }
+
+.derived {
+  margin: 0.6rem 0 0.5rem;
+  font-size: 0.875rem;
+}
+
+.sources-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--ink-2);
+  margin: 0.5rem 0 0.25rem;
+}
+
+.sources {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
+.sources li { margin-bottom: 0.2rem; }
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.dataset-list {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.875rem;
+}
+
+.dataset-list li { margin-bottom: 0.25rem; }
+.ds-note { color: var(--ink-2); }
+
+/* ---------- >= 640px: the sheet sits on the desk ---------- */
+
+@media (min-width: 640px) {
+  :root { --pad: 2rem; }
+
+  body { background: var(--desk); }
+
+  .herring { padding: 0.6rem 1rem; }
+
+  .sheet {
+    max-width: 46rem;
+    margin: 2rem auto 3rem;
+    padding: 2.5rem var(--pad) 3rem;
+    border: 1px solid var(--rule-soft);
+    box-shadow: 4px 4px 0 var(--rule-soft);
+  }
+
+  .notice { padding: 1.25rem 1.5rem; }
+
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+  }
+
+  .debts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+  }
+
+  .debts .field,
+  .debts .field:last-child { margin-bottom: 1rem; }
+  .debts .field-wide { grid-column: 1 / -1; margin-bottom: 0; }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .actions .btn-primary { width: auto; min-width: 16rem; }
+  .actions .btn-text { margin: 0; }
+
+  .result-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+
+  .result-buttons .btn-secondary { width: auto; }
+
+  .result-head { min-height: 5.75rem; }
+
+  .theatre-lines { font-size: 0.875rem; }
+
+  .fineprint { text-align: left; }
+}
+
+/* ---------- >= 1024px: vertical legend strip ---------- */
+
+@media (min-width: 1024px) {
+  .herring {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3.25rem;
+    padding: 1.5rem 0.5rem;
+    background: var(--desk);
+    color: var(--herring);
+    border-left: 1px solid var(--rule-soft); /* lands on the right after the rotation */
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+    text-align: center;
+  }
+
+  body { padding-left: 3.25rem; }
+
+  .sheet {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    padding: 48px;
+  }
+
+  .total { font-size: clamp(3rem, 6vw, 4.5rem); }
+}
+
+/* ---------- Reduced motion ---------- */
+
+/* Belt and braces: the JS never enters the theatre states under reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light">
+  <title>What Am I Worth? A household valuation (a joke)</title>
+  <meta name="description" content="Value your household the way the market values a certain very large AI lab. A joke calculator: everything runs in your browser and nothing is sent or stored.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="What Am I Worth? A household valuation (a joke)">
+  <meta property="og:description" content="Value your household the way the market values a certain very large AI lab. Income is revenue, debt is growth. Runs in your browser; nothing is sent or stored.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div class="herring" aria-hidden="true">Preliminary prospectus. Subject to completion. Not an offer to sell anything, least of all your house.</div>
+
+  <main class="sheet">
+    <header class="cover">
+      <p class="kicker">Household, Inc.</p>
+      <h1>What Am I Worth?</h1>
+      <p class="deck">An indicative valuation of your household, using the same multiples as a certain very large AI lab.</p>
+      <dl class="terms">
+        <div><dt>Proposed symbol</dt><dd>HHLD</dd></div>
+        <div><dt>Lead underwriter</dt><dd>Vibes &amp; Co.</dd></div>
+        <div><dt>Use of proceeds</dt><dd>Groceries</dd></div>
+      </dl>
+    </header>
+
+    <section id="privacy" class="notice" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">Important notice: your numbers never leave this device.</h2>
+      <p>There is no server, no analytics, no cookies and no storage. The maths runs entirely in your browser and is forgotten when you close or refresh the tab. Every field is optional; leave any of them blank.</p>
+      <p>This is a joke. It is not financial advice, and it is definitely not an offer of securities.</p>
+    </section>
+
+    <form id="valuation-form" class="schedule" novalidate autocomplete="off">
+      <h2>Schedule A: Household financial information <span class="unaudited">(unaudited)</span></h2>
+
+      <fieldset id="mode-toggle" class="mode-toggle">
+        <legend>Valuation basis</legend>
+        <div class="segments">
+          <input type="radio" name="mode" id="mode-hype" value="hype" checked>
+          <label for="mode-hype">
+            <span class="seg-label">IPO hype</span>
+            <span class="seg-hint">$2.00tn / $4.59bn revenue</span>
+          </label>
+          <input type="radio" name="mode" id="mode-seriesH" value="seriesH">
+          <label for="mode-seriesH">
+            <span class="seg-label">Series H</span>
+            <span class="seg-hint">$965.00bn / $65.00bn run-rate</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="pair">
+        <fieldset class="group">
+          <legend>Revenue</legend>
+          <div class="field">
+            <label for="income">Annual household income</label>
+            <div class="money"><span aria-hidden="true">$</span><input id="income" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" aria-describedby="income-hint income-error"></div>
+            <p id="income-hint" class="hint">Before tax. Your ARR.</p>
+            <p id="income-error" class="error" hidden></p>
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend>Assets</legend>
+          <div class="field">
+            <label for="savings">Savings and assets</label>
+            <div class="money"><span aria-hidden="true">$</span><input id="savings" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" aria-describedby="savings-hint savings-error"></div>
+            <p id="savings-hint" class="hint">Cash, investments, the car you own outright. Valued at par.</p>
+            <p id="savings-error" class="error" hidden></p>
+          </div>
+        </fieldset>
+      </div>
+
+      <fieldset class="group">
+        <legend>Strategic investments in growth (debts)</legend>
+        <div class="debts">
+          <div class="field">
+            <label for="mortgage">Mortgage remaining</label>
+            <div class="money"><span aria-hidden="true">$</span><input id="mortgage" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" aria-describedby="mortgage-error"></div>
+            <p id="mortgage-error" class="error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="creditCards">Credit card balances</label>
+            <div class="money"><span aria-hidden="true">$</span><input id="creditCards" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" aria-describedby="creditCards-error"></div>
+            <p id="creditCards-error" class="error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="carFinance">Car finance</label>
+            <div class="money"><span aria-hidden="true">$</span><input id="carFinance" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" aria-describedby="carFinance-error"></div>
+            <p id="carFinance-error" class="error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="studentLoans">Student loans</label>
+            <div class="money"><span aria-hidden="true">$</span><input id="studentLoans" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" aria-describedby="studentLoans-error"></div>
+            <p id="studentLoans-error" class="error" hidden></p>
+          </div>
+          <div class="field field-wide">
+            <label for="otherLoans">Other loans</label>
+            <div class="money"><span aria-hidden="true">$</span><input id="otherLoans" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" aria-describedby="otherLoans-hint otherLoans-error"></div>
+            <p id="otherLoans-hint" class="hint">BNPL, the loan from your brother, etc.</p>
+            <p id="otherLoans-error" class="error" hidden></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button id="submit" type="submit" class="btn-primary">Price my household</button>
+        <button id="clear" type="button" class="btn-text">Clear figures</button>
+      </div>
+      <noscript><p class="noscript">This calculator needs JavaScript. It still sends nothing anywhere.</p></noscript>
+    </form>
+
+    <section id="result" class="supplement" hidden data-state="hidden" aria-labelledby="result-headline">
+      <p class="kicker">Pricing supplement</p>
+      <div class="result-head">
+        <div id="theatre" class="theatre" hidden>
+          <p class="theatre-title">Due diligence in progress</p>
+          <ol id="theatre-lines" class="theatre-lines" aria-hidden="true"></ol>
+        </div>
+        <div data-reveal="0">
+          <h2 id="result-headline" tabindex="-1"></h2>
+          <p id="result-subtitle" class="subtitle"></p>
+        </div>
+      </div>
+      <div class="total-block">
+        <p id="result-total-label" class="total-label"></p>
+        <p id="result-total" class="total"></p>
+      </div>
+      <ul id="result-notices" class="notices" data-reveal="1"></ul>
+
+      <div class="table-wrap" data-reveal="1">
+        <table id="breakdown" class="breakdown">
+          <caption>Summary of valuation</caption>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <ul id="one-liners" class="one-liners" data-reveal="2"></ul>
+
+      <section id="comps" class="comps" data-reveal="3" aria-labelledby="comps-heading">
+        <h3 id="comps-heading">Comparable transactions</h3>
+        <ol id="comps-list" class="comps-list"></ol>
+        <p id="comps-empty" hidden></p>
+        <p id="conversion" class="conversion"></p>
+      </section>
+
+      <div class="result-actions" data-reveal="4">
+        <div class="result-buttons">
+          <button id="change-mode" type="button" class="btn-secondary"></button>
+          <button id="share" type="button" class="btn-secondary" hidden>Copy summary</button>
+        </div>
+        <p id="share-status" class="share-status" role="status"></p>
+        <p class="share-note">Copies your headline valuation (not your inputs) to your clipboard. Nothing is sent anywhere; you choose where to paste it.</p>
+      </div>
+      <p class="fineprint" data-reveal="4">Figures approximate. See the notes to the valuation below.</p>
+    </section>
+
+    <footer id="methodology" class="notes">
+      <h2>Notes to the valuation</h2>
+
+      <section class="note">
+        <h3><span class="note-num">Note 1.</span> The formula</h3>
+        <pre><code>valuation = income    * revenueMultiple  // income as "revenue"
+          + totalDebt * lossMultiple     // debt as "growth"
+          + savings   * 1                // savings at par</code></pre>
+        <p>Income is treated as revenue, debt as a loss and savings at face value. Here "savings" is the single savings-and-assets field; total debt is the sum of the five debt fields.</p>
+      </section>
+
+      <section class="note">
+        <h3><span class="note-num">Note 2.</span> Source figures</h3>
+        <div id="methodology-figures"></div>
+      </section>
+
+      <section class="note">
+        <h3><span class="note-num">Note 3.</span> Comparables</h3>
+        <p id="comps-note"></p>
+        <details id="comps-dataset">
+          <summary>All comparables</summary>
+          <ul id="comps-dataset-list" class="dataset-list"></ul>
+        </details>
+      </section>
+
+      <section class="note">
+        <h3><span class="note-num">Note 4.</span> Risk factors</h3>
+        <p>Past performance of AI labs is not indicative of your household's future results. Revenue multiples may go down as well as way, way up. Your mortgage lender may not recognise debt as strategic investment in growth.</p>
+      </section>
+
+      <section class="note">
+        <h3><span class="note-num">Note 5.</span> Privacy</h3>
+        <p>Your numbers never leave this device. There is no server, no analytics, no cookies and no storage; the maths runs in your browser and is forgotten when you close or refresh the tab. This page's security policy forbids it from connecting to anything. The optional Copy summary button puts your headline valuation on your clipboard only when you press it; it never includes your individual figures.</p>
+      </section>
+    </footer>
+
+    <button id="skip-reveal" type="button" class="skip-reveal" hidden>Skip due diligence</button>
+    <p id="result-announce" class="visually-hidden" aria-live="polite" aria-atomic="true"></p>
+  </main>
+</body>
+</html>
